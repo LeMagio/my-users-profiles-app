@@ -13,13 +13,15 @@ import { NavigationComponent } from './component/navigation/navigation.component
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatTableModule, MatPaginatorModule, MatSortModule, MatGridListModule, MatCardModule, MatMenuModule } from '@angular/material';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AboutComponent } from './component/about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponentComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
