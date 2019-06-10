@@ -1,0 +1,13 @@
+<h2>User list</h2>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Last name</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList.results">
+      <td>{{ user.name.first}}</td>
+      <td>{{ user.name.last }}</td>
+    </tr>
+  </tbody>
+</table>

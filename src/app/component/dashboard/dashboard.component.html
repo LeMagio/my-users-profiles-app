@@ -1,0 +1,29 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Current users</h1>
+  <mat-grid-list cols="4">
+    <mat-grid-tile *ngFor="let user of userList.results">
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            <h2 class="mat-h2">{{user.name.first}} {{user.name.last}}</h2>
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" xPosition="before">
+              <button mat-menu-item>Expand</button>
+              <button mat-menu-item>Remove</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">          
+          <div class="img-thumbnail">
+              <img src="{{ user.picture.large }}" alt="Avatar" />
+            </div>
+          <div class="card-content">
+            <strong>{{ user.email }}</strong>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
