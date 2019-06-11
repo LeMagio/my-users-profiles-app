@@ -13,6 +13,14 @@
     margin: 0 auto;
 }
 
+
+@media all and (max-width: 750px) {
+    .about-card {
+        width: 100% !important;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
 .about-card {
     width: 450px;
     height: 300px;
