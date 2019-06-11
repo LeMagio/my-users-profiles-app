@@ -2,4 +2,28 @@
 .img-thumbnail img{
     border-radius: 50%;
     margin: 0 auto;
-  }
+}
+  
+.dashboard-card-content {
+    text-align: center;
+}
+  
+.img-thumbnail img{
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+.about-card {
+    width: 450px;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.card-content{
+    margin-top: 20px;
+}
+
+.avatar-header-image{
+    background-image: url('https://api.adorable.io/avatars/285/joseluis.munoz.png');
+    background-size: cover;
+}
