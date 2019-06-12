@@ -1,7 +1,7 @@
 <div class="grid-container">
   <h1 class="mat-h1">Current users</h1>
-  <mat-grid-list cols="4">
-    <mat-grid-tile *ngFor="let user of userList.results">
+  <mat-grid-list cols="4" rowHeight="300px">
+    <mat-grid-tile *ngFor="let user of userList.results" [colspan]="user.cols" [rowspan]="user.rows">
       <mat-card class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
@@ -15,10 +15,8 @@
             </mat-menu>
           </mat-card-title>
         </mat-card-header>
-        <mat-card-content class="dashboard-card-content">          
-          <div class="img-thumbnail">
-              <img src="{{ user.picture.large }}" alt="Avatar" />
-            </div>
+        <mat-card-content class="dashboard-card-content">
+              <img class="img-thumbnail" mat-card-lg-image src="{{ user.picture.large }}" alt="Avatar" />
           <div class="card-content">
             <strong>{{ user.email }}</strong>
           </div>

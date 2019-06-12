@@ -10,37 +10,40 @@ import { UserManagementService } from 'src/app/service/user-management.service';
 })
 export class DashboardComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
-    map(({ matches }) => {
-      if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
-      }
-
-      return [
-        { title: 'Card 1', cols: 1, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 1 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
-    })
-  );
   userList: any = {
     results: new Array<any>()
   };
 
   constructor(private breakpointObserver: BreakpointObserver,
-    private userServices: UserManagementService) {}
+              private userServices: UserManagementService) {}
 
-    ngOnInit(){
-      this.userServices.getList()
-        .subscribe((userList: any) => {
-          console.log(userList);
-          this.userList = userList;
+  ngOnInit() {
+    this.userServices.getList()
+      .subscribe((userList: any) => {
+        const info = userList.info;
+        this.breakpointObserver.observe(Breakpoints.Handset).pipe(
+          map(({ matches }) => {
+            if (matches) {
+              return userList.results.map((user: any) => {
+                return {
+                  ...user,
+                  cols: 4,
+                  rows: 1
+                };
+              });
+            }
+            return userList.results.map((user: any) => {
+              return {
+                ...user,
+                cols: 1,
+                rows: 1
+              };
+            });
+          })
+        ).subscribe((list) => {
+          this.userList = { info, results: list };
         });
-    }
+        // this.userList = userList;
+      });
+  }
 }
